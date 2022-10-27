@@ -1,3 +1,5 @@
+"""Configuring view-fuctions for the app."""
+
 from django.http import HttpResponse
 
 

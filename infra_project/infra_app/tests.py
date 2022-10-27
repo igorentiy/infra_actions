@@ -1,9 +1,14 @@
+"""Tests for static pages."""
+
 from http import HTTPStatus
 from django.test import Client, TestCase
 
 
 class StaticPagesURLTests(TestCase):
+    """Tests for static pages."""
+
     def setUp(self):
+        """Настройка класса."""
         self.guest_client = Client()
 
     def test_about_url_exists_at_desired_location(self):
