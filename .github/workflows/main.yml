@@ -54,7 +54,7 @@ jobs:
     needs: build_and_push_to_docker_hub
     steps:
     - name: executing remote ssh commands to deploy
-      uses: appleboy/ssh-action@master
+      uses: appleboy/ssh-action@v0.1.4
       with:
         host: ${{ secrets.HOST }}
         username: ${{ secrets.USER }}
@@ -62,7 +62,7 @@ jobs:
         passphrase: ${{ secrets.PASSPHRASE }}
         script: |
           # Выполняет pull образа с DockerHub
-          sudo docker pull igorentiy/infra_actions
+          sudo docker pull igorentiy91/infra
           #остановка всех контейнеров
           sudo docker stop $(sudo docker ps -a -q)
-          sudo docker run --rm -d -p 5000:5000 igorentiy/infra_actions
+          sudo docker run --rm -d -p 5000:5000 igorentiy91/infra
